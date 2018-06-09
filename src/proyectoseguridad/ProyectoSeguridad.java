@@ -63,8 +63,11 @@ public class ProyectoSeguridad {
         
         /////////////////////////////////////////////////
         Usuario prueba = new Usuario("manu","manumanu");
+
         String x = abm.altaUsuario(prueba);
         
+        //String x = abm.altaUsuario(prueba);
+
         conector.abrirConexion();
         //Conector.sentencia.execute(x);
         //abm.llenarTablaInicialUsuarios(users);
