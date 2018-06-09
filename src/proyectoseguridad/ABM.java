@@ -34,7 +34,7 @@ public class ABM {
         try {
             Conector.abrirConexion();
             String sentenciaSQL = new String();
-            sentenciaSQL = sentenciaSQL + "SELECT * FROM seguridad.usuarios"; // Cambiar por la BD obligatorio
+            sentenciaSQL = sentenciaSQL + "SELECT * FROM seguridad.usuarios";
             Conector.resultado = Conector.sentencia.executeQuery(sentenciaSQL);
             return Conector.resultado;
         }
@@ -44,13 +44,13 @@ public class ABM {
         }
     }
     
-    public ResultSet encontrarUsuario(String nombre)
+    public ResultSet encontrarUsuario(String nombre,String contrasena)
     {
         
         try {
             Conector.abrirConexion();
             String sentenciaSQL = new String();
-            sentenciaSQL = sentenciaSQL = sentenciaSQL + "SELECT password FROM seguridad.usuarios WHERE usuario='"+nombre+"';";
+            sentenciaSQL = sentenciaSQL = sentenciaSQL + "SELECT COUNT(*) FROM seguridad.usuarios WHERE usuario='"+nombre+"' AND password='"+contrasena+"';";
             Conector.resultado = Conector.sentencia.executeQuery(sentenciaSQL);
             return Conector.resultado;
         }

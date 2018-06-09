@@ -92,23 +92,26 @@ public class MiCriptografia {
     }
     
     
-    public Boolean autenticacion (Usuario x) throws SQLException
+    public Boolean autenticacion (Usuario x) throws SQLException, NoSuchAlgorithmException
     {
         ABM abm = new ABM();
-        Usuario aux  = new Usuario();
-        ResultSet rs = abm.encontrarUsuario(x.getNombre());
+        this.hashearPassSHA1(x);
+        ResultSet rs = abm.encontrarUsuario(x.getNombre(),x.getPass());
         if(rs != null)
         {
-        aux.setNombre(rs.getString(1));
-        aux.setPassword(rs.getString(2));
+            if(rs.next()){
         
-            if(aux.getPass().equals(x.getPass()))
-            {
-                return true;
+                if(rs.getString(1).equals("1") )
+                {
+                    return true;
+                }
+                else return false;
+            
             }
             else return false;
         
         }
+        
         else return false;
         
         

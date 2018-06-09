@@ -63,26 +63,17 @@ public class ProyectoSeguridad {
         
         /////////////////////////////////////////////////
         Usuario prueba = new Usuario("manu","manumanu");
-        //String x = abm.altaUsuario(prueba);
+        String x = abm.altaUsuario(prueba);
         
         conector.abrirConexion();
         //Conector.sentencia.execute(x);
         //abm.llenarTablaInicialUsuarios(users);
         Conector.cerrarConexion();
-        mC.hashearPassSHA1(prueba);
         //System.out.println(prueba);
+        Usuario prueba2 = new Usuario("chile","chilechile");
         
-        ResultSet rs = abm.encontrarUsuario(prueba.getNombre());
-        System.out.println(rs.getString(1)+rs.getString(2));
-        rs.next();
-        System.out.println(rs.getString(1)+rs.getString(2));
+        System.out.println(mC.autenticacion(prueba2));
         
-        
-        
-        
-        
-        
-        System.out.println("sampaoli pelado violeta");
         
       
         
