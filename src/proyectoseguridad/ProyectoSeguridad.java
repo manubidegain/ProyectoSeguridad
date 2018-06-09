@@ -77,13 +77,6 @@ public class ProyectoSeguridad {
         rs.next();
         System.out.println(rs.getString(1)+rs.getString(2));
         
-        
-        
-        
-        
-        
-        System.out.println("sampaoli pelado violador");
-        
       
         
     }
