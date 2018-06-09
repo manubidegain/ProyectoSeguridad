@@ -77,6 +77,7 @@ public class ProyectoSeguridad {
         rs.next();
         System.out.println(rs.getString(1)+rs.getString(2));
         
+<<<<<<< HEAD
         
         
         
@@ -84,6 +85,8 @@ public class ProyectoSeguridad {
         
         System.out.println("sampaoli pelado violeta");
         
+=======
+>>>>>>> 842ccab6623113b89b4f509cbdbee25813160c66
       
         
     }
