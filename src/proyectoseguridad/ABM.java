@@ -7,7 +7,9 @@ package proyectoseguridad;
 
 import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import static proyectoseguridad.ProyectoSeguridad.conector;
 
 /**
  *
@@ -16,7 +18,7 @@ import java.util.ArrayList;
 public class ABM {
     
     
-    public String altaUsuario(Usuario user) throws NoSuchAlgorithmException {
+    public String altaUsuario(Usuario user) throws NoSuchAlgorithmException, SQLException {
         
         MiCriptografia mc = new MiCriptografia();
         byte[] hashpass = mc.hashSHA1(user.getPass());
@@ -24,8 +26,9 @@ public class ABM {
         String sentenciaSQL = new String();
         sentenciaSQL = "INSERT INTO seguridad.usuarios(usuario,password)"; // Cambiar por la nueva BD
         sentenciaSQL = sentenciaSQL + " VALUES ('" + user.getNombre() + "','" + hashfinal + "');";
-        System.out.println("Se creo la sentencia.");
-
+        conector.abrirConexion();
+        Conector.sentencia.execute(sentenciaSQL);
+        conector.cerrarConexion();
         return sentenciaSQL;
 
     }

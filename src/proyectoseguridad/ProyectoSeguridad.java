@@ -58,11 +58,13 @@ public class ProyectoSeguridad {
         content = api.bufferSufijos(con);
         con.disconnect();
         
-        api.comprobarVulnerabilidad(content, sufijoHash);
+        
+       // Este metodo lo cambie a privado 
+       // api.comprobarVulnerabilidad(content, sufijoHash);
         
         
         /////////////////////////////////////////////////
-        Usuario prueba = new Usuario("manu","manumanu");
+        Usuario prueba = new Usuario("Rafael","Contrasena Rafael","Login","Apellido");
 
         String x = abm.altaUsuario(prueba);
         
@@ -73,7 +75,8 @@ public class ProyectoSeguridad {
         //abm.llenarTablaInicialUsuarios(users);
         Conector.cerrarConexion();
         //System.out.println(prueba);
-        Usuario prueba2 = new Usuario("chile","chilechile");
+        
+        Usuario prueba2 = new Usuario("Rafael","Contrasena Rafael","Login","Apellido");
         
         System.out.println(mC.autenticacion(prueba2));
         
