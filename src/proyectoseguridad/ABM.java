@@ -53,7 +53,7 @@ public class ABM {
         try {
             Conector.abrirConexion();
             String sentenciaSQL = new String();
-            sentenciaSQL = sentenciaSQL = sentenciaSQL + "SELECT COUNT(*) FROM seguridad.usuarios WHERE usuario='"+nombre+"' AND password='"+contrasena+"';";
+            sentenciaSQL = sentenciaSQL = sentenciaSQL + "SELECT COUNT(*) FROM seguridad.usuarios WHERE usuario='"+nombre+"' AND password = '"+contrasena+"';";
             Conector.resultado = Conector.sentencia.executeQuery(sentenciaSQL);
             return Conector.resultado;
         }

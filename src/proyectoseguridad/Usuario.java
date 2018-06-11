@@ -32,6 +32,11 @@ public class Usuario {
         this.password=null;
     
     }
+
+    Usuario(String usuario, String password) {    
+         this.nombre = usuario;
+         this.password = password;
+    }
     public String getNombre() {
         return nombre;
     }

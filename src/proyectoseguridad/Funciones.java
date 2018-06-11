@@ -11,11 +11,11 @@ package proyectoseguridad;
  */
 public class Funciones {
  
-    public boolean isOk(String text) 
+    public boolean sqlInyection(String text) 
     {
         boolean result = false;
         if(text.contains("'")){
-            result = false;
+            result = true;
         }        
         return result;
      }
