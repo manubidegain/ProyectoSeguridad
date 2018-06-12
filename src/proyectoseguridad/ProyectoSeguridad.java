@@ -99,7 +99,7 @@ public class ProyectoSeguridad {
 //          
 //          }
 //      
-        String texto = "Texto que vot a cifrar";
+        String texto = "Texto que voy a cifrar";
         String secretKey = "qualityinfosolutions"; //llave para encriptar datos
         String base64EncryptedString = "";
  
@@ -114,9 +114,20 @@ public class ProyectoSeguridad {
             cipher.init(Cipher.ENCRYPT_MODE, key);
  
             byte[] plainTextBytes = texto.getBytes("utf-8");
+            System.out.println(plainTextBytes);
             byte[] buf = cipher.doFinal(plainTextBytes);
+            System.out.println(buf);
             String base64Bytes = Base64.encodeBytes(buf); 
+            System.out.println(base64Bytes);
             
+            
+            cipher.init(Cipher.DECRYPT_MODE, key);
+            byte[] base64Bytes2 = Base64.decode(base64Bytes);
+            System.out.println(base64Bytes2);
+            byte[] buf2 = cipher.doFinal(base64Bytes2);
+            System.out.println(buf2);
+            String plainTextBytes2 = new String(buf2);
+            System.out.println(plainTextBytes2);
             
             // byte[] message = Base64.decode(base64Bytes.getBytes("utf-8"));
 //            byte[] digestOfPassword = md.digest(secretKey.getBytes("utf-8"));
