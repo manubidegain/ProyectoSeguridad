@@ -14,13 +14,16 @@ import java.util.ArrayList;
  */
 public class Usuario {
     
-    
     private String nombre;
+    private String apellido;
     private String password;
+    private String login;
 
-    public Usuario(String nombre, String password) {
+    public Usuario(String nombre, String password, String login, String apellido) {
         this.nombre = nombre;
         this.password = password;
+        this.login = login;
+        this.apellido = apellido;
     }
     
     Usuario ()
@@ -45,8 +48,23 @@ public class Usuario {
     public void setPassword(String password) {
         this.password = password;
     }
-
     
+    public String getLogin() {
+        return this.login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getApellido() {
+        return this.apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
     public String toString()
     {
         return ("Usuario: " + this.getNombre() +" Password Hasheada: "+ this.getPass());

@@ -12,6 +12,10 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.security.NoSuchAlgorithmException;
+import static proyectoseguridad.ProyectoSeguridad.con;
+import static proyectoseguridad.ProyectoSeguridad.mC;
+import static proyectoseguridad.ProyectoSeguridad.password;
 
 /**
  *
@@ -45,8 +49,9 @@ public class ApiHIBP {
         return content;
 }
     
-    public void comprobarVulnerabilidad(StringBuffer content, String sufijoHash)
+    private String comprobarVulnerabilidad(StringBuffer content, String sufijoHash)
     {
+        String mensajeResultado = "";
         String[] posibles = content.toString().split("\\|");
         int flag = 0;
         for(String s:posibles)
@@ -56,18 +61,39 @@ public class ApiHIBP {
             String ocurrencias = linea[1];
             String sufijo = linea [0];
             if (sufijo.equals(sufijoHash.toUpperCase()))
-            {System.out.println("Se encontro el sufijo con "+ ocurrencias + " ocurrencias");
+            {mensajeResultado = "Se encontro el sufijo con "+ ocurrencias + " ocurrencias";
             flag = 1;
             break;
             }
         }
         if(flag==0)
         {
-            System.out.println("Su clave es bastante buena");
+            mensajeResultado = "Su clave es bastante buena";
         }
+        return mensajeResultado;
     
     }
     
     
+    public String resultadoVulnerabilidad(String password) throws NoSuchAlgorithmException, MalformedURLException, IOException{
+            
+        String retorno = "";
+        byte[] bytesPrueba;
+        MiCriptografia mC = new MiCriptografia();
+        bytesPrueba = mC.hashSHA1(password);
+        String finalStringSha = mC.hashString(bytesPrueba);
+        String sufijoHash = mC.sufijoHash(finalStringSha);
+        String prefijoHash = mC.prefijoHash(finalStringSha);
+        HttpURLConnection con;
+        StringBuffer content;
+        
+        con = crearConsulta(prefijoHash);
+        int status = con.getResponseCode();
+        content = bufferSufijos(con);
+        con.disconnect();
+        retorno = comprobarVulnerabilidad(content, sufijoHash);
+        
+        return retorno;
+    }
     
 }
