@@ -21,10 +21,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Base64;
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-import org.postgresql.util.Base64;
 
 
 /**
@@ -77,6 +77,7 @@ public class ProyectoSeguridad {
         
         System.out.println(cifrado);
         System.out.println(descifrado);
+
 
     }
     
