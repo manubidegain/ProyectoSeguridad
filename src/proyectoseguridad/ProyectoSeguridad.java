@@ -6,6 +6,8 @@
  */
 package proyectoseguridad;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
@@ -18,6 +20,11 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+import org.postgresql.util.Base64;
 
 
 /**
@@ -41,7 +48,7 @@ public class ProyectoSeguridad {
     static public ApiHIBP api = new ApiHIBP();
     
     
-    public static void main(String[] args) throws NoSuchAlgorithmException, ProtocolException, MalformedURLException, IOException, SQLException {
+    public static void main(String[] args) throws NoSuchAlgorithmException, ProtocolException, MalformedURLException, IOException, SQLException, Exception {
         // TODO code application logic here
         
         
@@ -59,30 +66,18 @@ public class ProyectoSeguridad {
         con.disconnect();
         
         
-       // Este metodo lo cambie a privado 
-       // api.comprobarVulnerabilidad(content, sufijoHash);
-        
-        
-        /////////////////////////////////////////////////
-        Usuario prueba = new Usuario("Rafael","Contrasena Rafael","Login","Apellido");
-
-        String x = abm.altaUsuario(prueba);
-        
-        //String x = abm.altaUsuario(prueba);
-
-        conector.abrirConexion();
-        //Conector.sentencia.execute(x);
-        //abm.llenarTablaInicialUsuarios(users);
-        Conector.cerrarConexion();
-        //System.out.println(prueba);
-        
-        Usuario prueba2 = new Usuario("Rafael","Contrasena Rafael","Login","Apellido");
-        
-        System.out.println(mC.autenticacion(prueba2));
-        
-        
       
+//      
+        String texto = "chito cara huevo";
+        String secretKey = "123456789abcdefg"; //llave para encriptar datos
+        SecretKeySpec llave = mC.crearLlave(secretKey);
         
+        String cifrado = mC.cifra(texto, llave);
+        String descifrado = mC.descifra(cifrado, llave);
+        
+        System.out.println(cifrado);
+        System.out.println(descifrado);
+
     }
     
 }

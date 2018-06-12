@@ -16,7 +16,7 @@ public class Conector {
     public static Connection conexion = null;
     public static Statement sentencia = null;
     public static ResultSet resultado = null;
-
+    
     public static void cerrarConexion() {
         conexion = null;
         if (resultado != null) {

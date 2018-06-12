@@ -6,11 +6,18 @@
 package proyectoseguridad;
 
 import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.SecretKeySpec;
+import org.postgresql.util.Base64;
 import static proyectoseguridad.ProyectoSeguridad.bytesPrueba;
 
 /**
@@ -117,6 +124,42 @@ public class MiCriptografia {
         
         
     }
+    
+    
+    public String cifra(String sinCifrar, SecretKeySpec key) throws Exception {
+	byte[] bytes = sinCifrar.getBytes("UTF-8");
+        Cipher aes = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        aes.init(Cipher.ENCRYPT_MODE, key);
+	byte[] cifrado = aes.doFinal(bytes);
+        String textoCifrado; 
+        textoCifrado = Base64.encodeBytes(cifrado);
+	return textoCifrado;
+}
+ 
+    
+    public SecretKeySpec crearLlave (String frase) throws UnsupportedEncodingException, NoSuchAlgorithmException
+    {
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+	digest.update(frase.getBytes("UTF-8"));
+        SecretKeySpec key = new SecretKeySpec(digest.digest(), 0, 16, "AES");
+        return key;
+    
+    }
+            
+            
+    public String descifra(String textoCifrado, SecretKeySpec key) throws UnsupportedEncodingException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException
+    {
+        
+	Cipher aes = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        aes.init(Cipher.DECRYPT_MODE, key);
+        byte[] cifrado = Base64.decode(textoCifrado);
+	byte[] bytes = aes.doFinal(cifrado);
+	String sinCifrar = new String(bytes);
+	return sinCifrar;
+
+    }
+    
+    
     
     
        
