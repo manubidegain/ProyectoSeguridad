@@ -6,6 +6,8 @@
  */
 package proyectoseguridad;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
@@ -18,6 +20,11 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+import org.postgresql.util.Base64;
 
 
 /**
@@ -64,25 +71,68 @@ public class ProyectoSeguridad {
         
         
         /////////////////////////////////////////////////
-        Usuario prueba = new Usuario("Rafael","Contrasena Rafael","Login","Apellido");
-
-        String x = abm.altaUsuario(prueba);
-        
+//        Usuario prueba = new Usuario("Rafael","Contrasena Rafael","Login","Apellido");
+//
+//        String x = abm.altaUsuario(prueba);
+//        
         //String x = abm.altaUsuario(prueba);
 
-        conector.abrirConexion();
+//        conector.abrirConexion();
         //Conector.sentencia.execute(x);
         //abm.llenarTablaInicialUsuarios(users);
-        Conector.cerrarConexion();
+//        Conector.cerrarConexion();
         //System.out.println(prueba);
         
-        Usuario prueba2 = new Usuario("Rafael","Contrasena Rafael","Login","Apellido");
+//        Usuario prueba2 = new Usuario("Rafael","Contrasena Rafael","Login","Apellido");
+//        
+//        System.out.println(mC.autenticacion(prueba2));
         
-        System.out.println(mC.autenticacion(prueba2));
         
-        
-      
-        
+//          String claveEncripacion = "claveTest";
+//          String textoParaEncriptar = "Estoy encriptando este texto";
+//          File archivo = new File(textoParaEncriptar);
+//          FileReader algo = new FileReader(archivo);
+//          
+//          BufferedReader br = new BufferedReader(algo);
+//          String aux = null;
+//          while( (aux = br.readLine()) != null){
+//          
+//          }
+//      
+        String texto = "Texto que vot a cifrar";
+        String secretKey = "qualityinfosolutions"; //llave para encriptar datos
+        String base64EncryptedString = "";
+ 
+        try {
+ 
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] digestOfPassword = md.digest(secretKey.getBytes("utf-8"));
+            byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
+ 
+            SecretKey key = new SecretKeySpec(keyBytes, "DESede");
+            Cipher cipher = Cipher.getInstance("DESede");
+            cipher.init(Cipher.ENCRYPT_MODE, key);
+ 
+            byte[] plainTextBytes = texto.getBytes("utf-8");
+            byte[] buf = cipher.doFinal(plainTextBytes);
+            String base64Bytes = Base64.encodeBytes(buf); 
+            
+            
+            // byte[] message = Base64.decode(base64Bytes.getBytes("utf-8"));
+//            byte[] digestOfPassword = md.digest(secretKey.getBytes("utf-8"));
+//            byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
+//            SecretKey key = new SecretKeySpec(keyBytes, "DESede");
+// 
+//            Cipher decipher = Cipher.getInstance("DESede");
+//            decipher.init(Cipher.DECRYPT_MODE, key);
+// 
+//            byte[] plainText = decipher.doFinal(message);
+// 
+//            base64EncryptedString = new String(plainText, "UTF-8");
+                int a =3;
+        } catch (Exception ex) {
+        }
+
     }
     
 }
