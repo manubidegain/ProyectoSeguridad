@@ -7,6 +7,8 @@
 package proyectoseguridad;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -65,19 +67,18 @@ public class ProyectoSeguridad {
         content = api.bufferSufijos(con);
         con.disconnect();
         
+        String ruta = "C:\\Users\\Juan Manuel\\Desktop\\Facultad";
         
-      
-//      
-        String texto = "chito cara huevo";
-        String secretKey = "123456789abcdefg"; //llave para encriptar datos
-        SecretKeySpec llave = mC.crearLlave(secretKey);
+       // ManejoArchivos.generarLlaves(ruta);
+        File archivo = new File("C:\\Users\\Juan Manuel\\Desktop\\Facultad\\MateriasQueDebo.txt");
+        File archivoFirmado = new File ("C:\\Users\\Juan Manuel\\Desktop\\Facultad\\firmadoPrueba.txt");
+        File privateKey = new File("C:\\Users\\Juan Manuel\\Desktop\\Facultad\\privateKey");
+        File publicKey = new File ("C:\\Users\\Juan Manuel\\Desktop\\Facultad\\publicKey");
         
-        String cifrado = mC.cifra(texto, llave);
-        String descifrado = mC.descifra(cifrado, llave);
+        System.out.println(MiCriptografia.firmar(archivo, archivoFirmado, privateKey));
         
-        System.out.println(cifrado);
-        System.out.println(descifrado);
-
+        System.out.println(MiCriptografia.verificar(archivoFirmado, publicKey));
+        
 
     }
     

@@ -50,6 +50,7 @@ public class ABM {
     public ResultSet encontrarUsuario(String nombre,String contrasena)
     {
         
+        
         try {
             Conector.abrirConexion();
             String sentenciaSQL = new String();
