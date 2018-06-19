@@ -17,26 +17,20 @@ public class Usuario {
     private String nombre;
     private String apellido;
     private String password;
-    private String login;
+    private String cedula;
 
-    public Usuario(String nombre, String password, String login, String apellido) {
+    public Usuario(String nombre, String apellido, String login, String password) {
         this.nombre = nombre;
         this.password = password;
-        this.login = login;
+        this.cedula = login;
         this.apellido = apellido;
     }
     
-    Usuario ()
-    {
-        this.nombre=null;
-        this.password=null;
-    
-    }
-
-    Usuario(String usuario, String password) {    
-         this.nombre = usuario;
+    Usuario(String cedula, String password) {    
+         this.cedula = cedula;
          this.password = password;
     }
+    Usuario(){}
     public String getNombre() {
         return nombre;
     }
@@ -54,12 +48,12 @@ public class Usuario {
         this.password = password;
     }
     
-    public String getLogin() {
-        return this.login;
+    public String getCedula() {
+        return this.cedula;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
     }
 
     public String getApellido() {
