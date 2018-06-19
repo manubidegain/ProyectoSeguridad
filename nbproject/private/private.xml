@@ -3,24 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Juan%20Manuel/Documents/NetBeansProjects/ProyectoSeguridad/src/proyectoseguridad/Conector.java</file>
-            <file>file:/C:/Users/Juan%20Manuel/Documents/NetBeansProjects/ProyectoSeguridad/src/proyectoseguridad/ApiHIBP.java</file>
-            <file>file:/C:/Users/Juan%20Manuel/Documents/NetBeansProjects/ProyectoSeguridad/src/proyectoseguridad/Cifrador.java</file>
-            <file>file:/C:/Users/Juan%20Manuel/Documents/NetBeansProjects/ProyectoSeguridad/src/proyectoseguridad/MiCriptografia.java</file>
-            <file>file:/C:/Users/Juan%20Manuel/Documents/NetBeansProjects/ProyectoSeguridad/src/proyectoseguridad/ProyectoSeguridad.java</file>
-            <file>file:/C:/Users/Juan%20Manuel/Documents/NetBeansProjects/ProyectoSeguridad/src/proyectoseguridad/ABM.java</file>
-=======
-            <file>file:/Users/rafaelpelacchi/Documents/GitHub/ProyectoSeguridad/src/proyectoseguridad/Usuario.java</file>
-            <file>file:/Users/rafaelpelacchi/Documents/GitHub/ProyectoSeguridad/src/proyectoseguridad/ApiHIBP.java</file>
-            <file>file:/Users/rafaelpelacchi/Documents/GitHub/ProyectoSeguridad/src/proyectoseguridad/IngresoUsuario.java</file>
-            <file>file:/Users/rafaelpelacchi/Documents/GitHub/ProyectoSeguridad/src/proyectoseguridad/ABM.java</file>
-            <file>file:/Users/rafaelpelacchi/Documents/GitHub/ProyectoSeguridad/src/proyectoseguridad/CrearUsuario.java</file>
-            <file>file:/Users/rafaelpelacchi/Documents/GitHub/ProyectoSeguridad/src/proyectoseguridad/Funciones.java</file>
-            <file>file:/Users/rafaelpelacchi/Documents/GitHub/ProyectoSeguridad/src/proyectoseguridad/MiCriptografia.java</file>
-            <file>file:/Users/rafaelpelacchi/Documents/GitHub/ProyectoSeguridad/src/proyectoseguridad/ProyectoSeguridad.java</file>
-            <file>file:/Users/rafaelpelacchi/Documents/GitHub/ProyectoSeguridad/src/proyectoseguridad/Conector.java</file>
->>>>>>> origin/master
+            <file>file:/C:/Users/Computer-1/Documents/GitHub/ProyectoSeguridad/src/proyectoseguridad/ProyectoSeguridad.java</file>
+            <file>file:/C:/Users/Computer-1/Documents/GitHub/ProyectoSeguridad/src/proyectoseguridad/CrearUsuario.java</file>
+            <file>file:/C:/Users/Computer-1/Documents/GitHub/ProyectoSeguridad/src/proyectoseguridad/Cifrador.java</file>
+            <file>file:/C:/Users/Computer-1/Documents/GitHub/ProyectoSeguridad/src/proyectoseguridad/ApiHIBP.java</file>
         </group>
     </open-files>
 </project-private>

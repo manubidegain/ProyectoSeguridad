@@ -14,12 +14,12 @@ import java.util.logging.Logger;
  *
  * @author rafaelpelacchi
  */
-public class IngresoUsuario extends javax.swing.JFrame {
+public class login extends javax.swing.JFrame {
     Funciones dtoFunciones = new Funciones();
     /**
      * Creates new form IngresoUsuario
      */
-    public IngresoUsuario() {
+    public login() {
         initComponents();
         cargarPagina();
     }
@@ -149,15 +149,18 @@ public class IngresoUsuario extends javax.swing.JFrame {
                 try {
                     existeUsuario = existe(usuario,password);
                 } catch (SQLException ex) {
-                    Logger.getLogger(IngresoUsuario.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (NoSuchAlgorithmException ex) {
-                    Logger.getLogger(IngresoUsuario.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 if(!existeUsuario){
                     this.lblErrorPassword.setVisible(true);
                 }
                 else{
                     cargarPagina();
+                    this.setVisible(false);
+                    menuPrincipal menu = new menuPrincipal();
+                    menu.setVisible(true);
                 }
             }
         
@@ -180,20 +183,21 @@ public class IngresoUsuario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IngresoUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IngresoUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IngresoUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IngresoUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new IngresoUsuario().setVisible(true);
+                new login().setVisible(true);
             }
         });
     }
@@ -214,10 +218,10 @@ public class IngresoUsuario extends javax.swing.JFrame {
         this.lblErrorPassword.setVisible(false);
     }
 
-    private boolean existe(String usuario,String password) throws SQLException, NoSuchAlgorithmException {
+    private boolean existe(String cedula,String password) throws SQLException, NoSuchAlgorithmException {
         boolean resultado = false;
         MiCriptografia mc = new MiCriptografia();
-        resultado = mc.autenticacion(new Usuario(usuario,password));
+        resultado = mc.autenticacion(new Usuario(cedula,password));
         return resultado;
     }
 

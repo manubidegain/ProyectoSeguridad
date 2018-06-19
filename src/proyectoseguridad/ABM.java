@@ -21,11 +21,11 @@ public class ABM {
     public String altaUsuario(Usuario user) throws NoSuchAlgorithmException, SQLException {
         
         MiCriptografia mc = new MiCriptografia();
-        byte[] hashpass = mc.hashSHA1(user.getPass());
+        byte[] hashpass = mc.hashSHA256(user.getPass());
         String hashfinal = mc.hashString(hashpass);
         String sentenciaSQL = new String();
-        sentenciaSQL = "INSERT INTO seguridad.usuarios(usuario,password)"; // Cambiar por la nueva BD
-        sentenciaSQL = sentenciaSQL + " VALUES ('" + user.getNombre() + "','" + hashfinal + "');";
+        sentenciaSQL = "INSERT INTO seguridad.usuarios(cedula,password,nombre,apellido)"; // Cambiar por la nueva BD
+        sentenciaSQL = sentenciaSQL + " VALUES ('"+ user.getCedula() + "','" + hashfinal + "','" + user.getNombre() + "','" + user.getApellido() +"');";
         conector.abrirConexion();
         Conector.sentencia.execute(sentenciaSQL);
         conector.cerrarConexion();
@@ -47,14 +47,14 @@ public class ABM {
         }
     }
     
-    public ResultSet encontrarUsuario(String nombre,String contrasena)
+    public ResultSet encontrarUsuario(String cedula,String contrasena)
     {
         
         
         try {
             Conector.abrirConexion();
             String sentenciaSQL = new String();
-            sentenciaSQL = sentenciaSQL = sentenciaSQL + "SELECT COUNT(*) FROM seguridad.usuarios WHERE usuario='"+nombre+"' AND password = '"+contrasena+"';";
+            sentenciaSQL = sentenciaSQL = sentenciaSQL + "SELECT COUNT(*) FROM seguridad.usuarios WHERE cedula='"+cedula+"' AND password = '"+contrasena+"';";
             Conector.resultado = Conector.sentencia.executeQuery(sentenciaSQL);
             return Conector.resultado;
         }
