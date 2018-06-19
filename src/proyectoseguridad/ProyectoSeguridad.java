@@ -79,6 +79,7 @@ public class ProyectoSeguridad {
         System.out.println(descifrado);*/
         
         inicio init = new inicio();
+        
         init.setVisible(true);
 
 
