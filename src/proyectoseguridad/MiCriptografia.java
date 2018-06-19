@@ -106,6 +106,14 @@ public class MiCriptografia {
         user.setPassword(hashfinal);
 
     }
+    
+    public void hashearPassSHA256(Usuario user) throws NoSuchAlgorithmException {
+        byte[] hashpass = hashSHA1(user.getPass());
+        String hashfinal = hashString(hashpass);
+        user.setPassword(hashfinal);
+
+    }
+
 
     private static PrivateKey getPrivate(File file) throws Exception {
         byte[] keyBytes = Files.readAllBytes(file.toPath());
@@ -123,7 +131,7 @@ public class MiCriptografia {
 
     public Boolean autenticacion(Usuario x) throws SQLException, NoSuchAlgorithmException {
         ABM abm = new ABM();
-        this.hashearPassSHA1(x);// sha256
+        this.hashearPassSHA256(x);// sha256
         ResultSet rs = abm.encontrarUsuario(x.getNombre(), x.getPass());
         if (rs != null) {
             if (rs.next()) {
