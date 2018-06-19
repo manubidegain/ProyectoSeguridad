@@ -236,8 +236,8 @@ public class registrarUsuario extends javax.swing.JFrame {
                 Logger.getLogger(registrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
             cargarPagina();
-            JOptionPane.showMessageDialog(rootPane, "Se Creo el Usuario Correctamente", login, INFORMATION_MESSAGE);
-            
+            JOptionPane.showMessageDialog(rootPane, "Se Creo el Usuario Correctamente", login, INFORMATION_MESSAGE);            
+            this.dispose();
         }
         
     }//GEN-LAST:event_btnCrearActionPerformed

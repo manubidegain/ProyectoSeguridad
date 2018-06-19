@@ -55,7 +55,7 @@ public class ProyectoSeguridad {
         bytesPrueba = mC.hashSHA1(password);
         
         
-        String finalStringSha = mC.hashString(bytesPrueba);
+        /*String finalStringSha = mC.hashString(bytesPrueba);
         String sufijoHash = mC.sufijoHash(finalStringSha);
         String prefijoHash = mC.prefijoHash(finalStringSha);
         
@@ -76,7 +76,10 @@ public class ProyectoSeguridad {
         String descifrado = mC.descifra(cifrado, llave);
         
         System.out.println(cifrado);
-        System.out.println(descifrado);
+        System.out.println(descifrado);*/
+        
+        inicio init = new inicio();
+        init.setVisible(true);
 
 
     }
