@@ -48,13 +48,14 @@ public class login extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(919, 533));
         getContentPane().setLayout(null);
 
+        txtUsuario.setSize(new java.awt.Dimension(270, 26));
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsuarioActionPerformed(evt);
             }
         });
         getContentPane().add(txtUsuario);
-        txtUsuario.setBounds(348, 358, 250, 26);
+        txtUsuario.setBounds(330, 360, 270, 26);
 
         jLabel1.setText("Usuario");
         getContentPane().add(jLabel1);
@@ -62,20 +63,21 @@ public class login extends javax.swing.JFrame {
 
         jLabel2.setText("Password");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(265, 415, 59, 16);
+        jLabel2.setBounds(260, 410, 59, 16);
 
         lblErrorPassword.setForeground(new java.awt.Color(255, 51, 51));
         lblErrorPassword.setText("Usuario o Password incorrecto");
         getContentPane().add(lblErrorPassword);
         lblErrorPassword.setBounds(371, 495, 191, 16);
 
+        txtPassword.setSize(new java.awt.Dimension(270, 26));
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPasswordActionPerformed(evt);
             }
         });
         getContentPane().add(txtPassword);
-        txtPassword.setBounds(348, 410, 250, 26);
+        txtPassword.setBounds(330, 410, 250, 26);
 
         btnIngresar.setText("Ingresar");
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
@@ -94,21 +96,21 @@ public class login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnIngresar1);
-        btnIngresar1.setBounds(352, 303, 246, 29);
+        btnIngresar1.setBounds(328, 303, 270, 29);
         btnIngresar1.getAccessibleContext().setAccessibleName("sincronizar");
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoseguridad/Imagen.png"))); // NOI18N
         jLabel3.setText("jLabel3");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(291, 65, 343, 209);
+        jLabel3.setBounds(300, 60, 343, 209);
 
         jPanel1.setLayout(null);
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 100, 100);
 
-        jLabel4.setText("jLabel4");
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoseguridad/fondo.png"))); // NOI18N
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(0, 0, 920, 530);
+        jLabel4.setBounds(0, 0, 920, 540);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
