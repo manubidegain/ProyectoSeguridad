@@ -15,16 +15,28 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.SignatureException;
+import java.security.cert.CertificateException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.List;
+import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
+import javax.smartcardio.Card;
+import javax.smartcardio.CardChannel;
+import javax.smartcardio.CardTerminal;
+import javax.smartcardio.TerminalFactory;
 
 
 /**
@@ -46,42 +58,42 @@ public class ProyectoSeguridad {
     static public ABM abm = new ABM();
     static public MiCriptografia mC = new MiCriptografia();
     static public ApiHIBP api = new ApiHIBP();
+    static public CardChannel channel;
+    static public TerminalFactory factory;
+    static public List<CardTerminal> terminals;
+    static public CardTerminal terminal ;
+    static public Card card;
     
     
     public static void main(String[] args) throws NoSuchAlgorithmException, ProtocolException, MalformedURLException, IOException, SQLException, Exception {
         // TODO code application logic here
-        
-        
-        bytesPrueba = mC.hashSHA1(password);
-        
-        
-        /*String finalStringSha = mC.hashString(bytesPrueba);
-        String sufijoHash = mC.sufijoHash(finalStringSha);
-        String prefijoHash = mC.prefijoHash(finalStringSha);
-        
-        con = api.crearConsulta(prefijoHash);
-        int status = con.getResponseCode();
+        // show the list of available terminals
+        factory = TerminalFactory.getDefault();
+        terminals = factory.terminals().list();
+        // System.out.println("Terminals: " + terminals);
+        // get the first terminal
+        terminal = terminals.get(0);
+        // establish a connection with the card
+        card = terminal.connect("T=0");
+        // System.out.println("card ATR: " +
+        // byteArrayToHex(card.getATR().getBytes()));
+        channel = card.getBasicChannel();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        content = api.bufferSufijos(con);
-        con.disconnect();
+        //Log Configuration
+        String logPath = System.getProperty("user.dir");
+
+        String logOption = "";
+
+        LogUtils logUtils = LogUtils.getInstance();
+        logUtils.configure(logPath,logOption);
         
-        
-      
-//      
-        String texto = "chito cara huevo";
-        String secretKey = "123456789abcdefg"; //llave para encriptar datos
-        SecretKeySpec llave = mC.crearLlave(secretKey);
-        
-        String cifrado = mC.cifra(texto, llave);
-        String descifrado = mC.descifra(cifrado, llave);
-        
-        System.out.println(cifrado);
-        System.out.println(descifrado);*/
-        
+        //System.out.println(Funciones.readCedula(channel));
         inicio init = new inicio();
         
         init.setVisible(true);
-        ManejoArchivos.generarLlaves("C:\\Users\\Computer-1\\Desktop\\ProyectoSeguridad");
+        
+        
 
     }    
 }

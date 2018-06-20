@@ -280,14 +280,13 @@ public class menu extends javax.swing.JFrame {
             catch(Exception ex){
             }
         }
-        ManejoArchivos ma = new ManejoArchivos();
-        String path = ma.obtenerRutaNueva(this.archivoAVerificar.getAbsolutePath(),"firmado");
-        boolean verificado = MiCriptografia.verificar(archivoAVerificar, clavePublica);
-        if (verificado){
-            JOptionPane.showMessageDialog(rootPane, "La firma es valida");
+       
+        boolean firmado = MiCriptografia.verificar(archivoAVerificar,clavePublica);
+        if (firmado){
+            JOptionPane.showMessageDialog(rootPane, "La firma corresponde al dueno de la PublicKey");
         }
         else{
-            JOptionPane.showMessageDialog(rootPane, "La firma es invalida");
+            JOptionPane.showMessageDialog(rootPane, "La firma no corresponde con la PublicKey");
         }
     }//GEN-LAST:event_btnVerificarActionPerformed
 

@@ -159,6 +159,31 @@ public class MiCriptografia {
         
     }
     
+    public Boolean autenticacionSmart (String cedula) throws SQLException, NoSuchAlgorithmException
+    {
+        ABM abm = new ABM();
+        ResultSet rs = abm.encontrarUsuarioCedula(cedula);
+        if(rs != null)
+        {
+            if(rs.next()){
+        
+                if(rs.getString(1).equals("1") )
+                {
+                    return true;
+                }
+                else return false;
+            
+            }
+            else return false;
+        
+        }
+        
+        else return false;
+        
+        
+        
+    }
+    
     
     public String cifra(String sinCifrar, SecretKeySpec key) throws Exception {
 	byte[] bytes = sinCifrar.getBytes("UTF-8");
@@ -270,11 +295,12 @@ public class MiCriptografia {
              System.arraycopy(buf, 1, firmaParaVerificar,0 ,largoInt);
              
              /* Creo un objeto firma y lo inicializo con la public key */
-             Signature sig = Signature.getInstance("SHA1withDSA", "SUN");
+             Signature sig = Signature.getInstance("SHA256withDSA", "SUN");
              sig.initVerify(pub);
              
              /* Hago un update al objeto firma con el arcvhio */
              byte[] archivoSolo = new byte[buf.length-(largoInt + 1)];
+             System.arraycopy(buf,largoInt+1 ,archivoSolo, 0 ,archivoSolo.length );
              sig.update(archivoSolo, 0, archivoSolo.length);
              
              /* Verifico */
@@ -294,7 +320,7 @@ public class MiCriptografia {
      
      public static boolean firmar(File archivoAFirmar, File archivoFirmado, File privateKey) {
          try {
-             Signature dsa = Signature.getInstance("SHA1withDSA", "SUN");
+             Signature dsa = Signature.getInstance("SHA256withDSA", "SUN");
              PrivateKey priv = getPrivate(privateKey);
              dsa.initSign(priv);
  
