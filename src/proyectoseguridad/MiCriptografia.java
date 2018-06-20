@@ -8,6 +8,7 @@ package proyectoseguridad;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
 import java.security.InvalidAlgorithmParameterException;
@@ -194,30 +195,57 @@ public class MiCriptografia {
      SecureRandom sr = new SecureRandom();
      byte[] iv = new byte[16];
  
-     public byte[] cifraArchivo(byte[] sinCifrar, SecretKeySpec key) throws Exception {
+     public boolean cifraArchivo(File archivoACifrar,File archivoCifrado, SecretKeySpec key) throws Exception {
  
+        try{
          SecureRandom srx = new SecureRandom();
          byte[] ivx = new byte[16];
          sr.nextBytes(ivx);
          Cipher aes = Cipher.getInstance("AES/CBC/PKCS5Padding");
          aes.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(ivx));
+         
+        byte[] sinCifrar = new byte[(int) archivoACifrar.length()];
+        FileInputStream fis = new FileInputStream(archivoACifrar);
+        fis.read(sinCifrar);
+        fis.close();
+             
+             
          byte[] cifrado = aes.doFinal(sinCifrar);
          byte[] ultimo = new byte[ivx.length  + cifrado.length];
          System.arraycopy(ivx, 0, ultimo, 0, 16);
          System.arraycopy(cifrado, 0, ultimo, 16, cifrado.length);
-         return ultimo;
+         
+         FileOutputStream sigfos = new FileOutputStream(archivoCifrado);
+         sigfos.write(ultimo);
+ 
+        sigfos.close();
+         return true;
+        }
+        catch(Exception e) {return false;}
      }
   
  
-     public byte[] descifraArchivo(byte[] archivoCifrado, SecretKeySpec key) throws UnsupportedEncodingException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
+     public boolean descifraArchivo(File archivoADescifrar, File archivoDescifrado, SecretKeySpec key) throws UnsupportedEncodingException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException, IOException {
+         try{
          Cipher aes = Cipher.getInstance("AES/CBC/PKCS5Padding");//cambiar a algun algoritmo cbc
          byte[] ivx = new byte[16];
-         byte[] cifrado = new byte[archivoCifrado.length - 16];
-         System.arraycopy(archivoCifrado, 0, ivx, 0, 16);
-         System.arraycopy(archivoCifrado, 16, cifrado, 0, cifrado.length);
+         byte[] acifrado = new byte[(int) archivoADescifrar.length()];
+        FileInputStream fis2 = new FileInputStream(archivoADescifrar);
+        fis2.read(acifrado);
+        fis2.close();
+         byte[] cifrado = new byte[acifrado.length - 16];
+         System.arraycopy(acifrado, 0, ivx, 0, 16);
+         System.arraycopy(acifrado, 16, cifrado, 0, cifrado.length);
          aes.init(Cipher.DECRYPT_MODE, key, new IvParameterSpec(ivx));
          byte[] bytes = aes.doFinal(cifrado);
-         return bytes;
+         
+         FileOutputStream sigfos = new FileOutputStream(archivoDescifrado);
+         sigfos.write(bytes);
+ 
+        sigfos.close();
+         return true;
+         }
+         catch (Exception e) {return false;}
  
      }
  

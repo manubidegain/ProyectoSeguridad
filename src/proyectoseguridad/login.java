@@ -159,8 +159,8 @@ public class login extends javax.swing.JFrame {
                 else{
                     cargarPagina();
                     this.setVisible(false);
-                    menuPrincipal menu = new menuPrincipal();
-                    menu.setVisible(true);
+                    menu m = new menu();
+                    m.setVisible(true);
                 }
             }
         

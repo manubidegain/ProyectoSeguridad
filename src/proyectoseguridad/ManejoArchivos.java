@@ -42,10 +42,26 @@ public class ManejoArchivos {
         }
     }
     
+    public static String obtenerRutaNueva(String dire,String prefijo)
+    {
+
+        String largonombre[] = dire.split(getBarra());
+        String retorno = dire.substring(0,dire.length() - largonombre[largonombre.length -1].length());
+        return retorno + prefijo +"-" + largonombre[largonombre.length-1];
+        
+    }
+    public static String obtenerRutaNueva(String dire)
+    {
+
+        return dire.replace("cifrado","descifrado");
+        
+    }
+    
     public static String getBarra(){
         switch(System.getProperty("os.name")){
             case "Linux": return "/";
-            case "Windows" : return "\\";
+            case "Windows 8.1" : return "\\\\";
+            case "Windows" : return "\\\\";
             default: return "/";
         }
     }

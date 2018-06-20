@@ -81,8 +81,7 @@ public class ProyectoSeguridad {
         inicio init = new inicio();
         
         init.setVisible(true);
+        ManejoArchivos.generarLlaves("C:\\Users\\Computer-1\\Desktop\\ProyectoSeguridad");
 
-
-    }
-    
+    }    
 }
