@@ -41,8 +41,8 @@ public class login extends javax.swing.JFrame {
         btnIngresar = new javax.swing.JButton();
         btnIngresar1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(919, 533));
@@ -70,14 +70,13 @@ public class login extends javax.swing.JFrame {
         getContentPane().add(lblErrorPassword);
         lblErrorPassword.setBounds(371, 495, 191, 16);
 
-        txtPassword.setSize(new java.awt.Dimension(270, 26));
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPasswordActionPerformed(evt);
             }
         });
         getContentPane().add(txtPassword);
-        txtPassword.setBounds(330, 410, 250, 26);
+        txtPassword.setBounds(330, 410, 270, 26);
 
         btnIngresar.setText("Ingresar");
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
@@ -104,13 +103,13 @@ public class login extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(300, 60, 343, 209);
 
-        jPanel1.setLayout(null);
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 100, 100);
-
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoseguridad/fondo.png"))); // NOI18N
         getContentPane().add(jLabel4);
         jLabel4.setBounds(0, 0, 920, 540);
+
+        jPanel1.setLayout(null);
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 100, 100);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

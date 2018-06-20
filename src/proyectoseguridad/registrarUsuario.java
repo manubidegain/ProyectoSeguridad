@@ -24,6 +24,7 @@ public class registrarUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -42,23 +43,44 @@ public class registrarUsuario extends javax.swing.JFrame {
         txtPass2 = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoseguridad/fondo.png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Cedula");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 157, -1, -1));
+        jLabel1.getAccessibleContext().setAccessibleName("lblLogin");
 
         jLabel2.setText("Nombre");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 213, -1, -1));
+        jLabel2.getAccessibleContext().setAccessibleName("lblNombe");
 
         jLabel3.setText("Apellido");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 276, -1, -1));
+        jLabel3.getAccessibleContext().setAccessibleName("lblApellido");
 
         txtLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLoginActionPerformed(evt);
             }
         });
+        getContentPane().add(txtLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 152, 334, -1));
+        txtLogin.getAccessibleContext().setAccessibleName("txtLogin");
+
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 208, 334, -1));
+        txtNombre.getAccessibleContext().setAccessibleName("txtNombre");
+        txtNombre.getAccessibleContext().setAccessibleDescription("");
+
+        getContentPane().add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 271, 332, -1));
+        txtApellido.getAccessibleContext().setAccessibleName("txtApellido");
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel4.setText("Ingrese sus datos personales");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, -1, -1));
+        jLabel4.getAccessibleContext().setAccessibleName("txtTitulo");
 
         btnCrear.setText("Crear");
         btnCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -66,8 +88,11 @@ public class registrarUsuario extends javax.swing.JFrame {
                 btnCrearActionPerformed(evt);
             }
         });
+        getContentPane().add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 439, -1, -1));
+        btnCrear.getAccessibleContext().setAccessibleName("btnCrear");
 
         lblPassword.setText("Password");
+        getContentPane().add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 335, -1, -1));
 
         btnVerificar.setText("Verificar");
         btnVerificar.addActionListener(new java.awt.event.ActionListener() {
@@ -75,21 +100,28 @@ public class registrarUsuario extends javax.swing.JFrame {
                 btnVerificarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnVerificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, 91, -1));
+        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 330, 283, -1));
 
         lblErrorLogin.setForeground(new java.awt.Color(255, 51, 51));
         lblErrorLogin.setText("La cedula ingresada ya se encuentra reistrada");
+        getContentPane().add(lblErrorLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(558, 157, -1, -1));
 
         lblErrorNombre.setForeground(new java.awt.Color(255, 51, 51));
         lblErrorNombre.setText("El nombre elegido no se encuentra dispoinible");
+        getContentPane().add(lblErrorNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(561, 213, -1, -1));
 
         lblErrirApellido.setForeground(new java.awt.Color(255, 51, 51));
         lblErrirApellido.setText("El Apellido elegido no se encuentra dispoinible");
+        getContentPane().add(lblErrirApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(561, 276, -1, -1));
 
         lblErrorPassword.setText("jLabel5");
-
-        txtPass2.setText("jPasswordField1");
+        getContentPane().add(lblErrorPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 405, -1, -1));
+        getContentPane().add(txtPass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 368, 227, -1));
+        txtPass2.getAccessibleContext().setAccessibleName("txtPass2");
 
         jLabel5.setText("Repetir Password");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 373, -1, -1));
 
         jButton1.setText("Cancelar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -97,108 +129,10 @@ public class registrarUsuario extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(379, 439, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(285, 285, 285)
-                .addComponent(jLabel4)
-                .addContainerGap(361, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(147, 147, 147)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtLogin)
-                            .addComponent(txtNombre)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtApellido))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPassword)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnVerificar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtPassword)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblErrorPassword)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnCrear)
-                                    .addGap(36, 36, 36)
-                                    .addComponent(jButton1))
-                                .addComponent(txtPass2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(lblErrorLogin))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblErrirApellido)
-                            .addComponent(lblErrorNombre))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jLabel4)
-                .addGap(86, 86, 86)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblErrorLogin))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblErrorNombre))
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblErrirApellido))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPassword)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVerificar)
-                    .addComponent(txtPass2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                .addComponent(lblErrorPassword)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCrear)
-                    .addComponent(jButton1))
-                .addGap(71, 71, 71))
-        );
-
-        jLabel1.getAccessibleContext().setAccessibleName("lblLogin");
-        jLabel2.getAccessibleContext().setAccessibleName("lblNombe");
-        jLabel3.getAccessibleContext().setAccessibleName("lblApellido");
-        txtLogin.getAccessibleContext().setAccessibleName("txtLogin");
-        txtNombre.getAccessibleContext().setAccessibleName("txtNombre");
-        txtNombre.getAccessibleContext().setAccessibleDescription("");
-        txtApellido.getAccessibleContext().setAccessibleName("txtApellido");
-        jLabel4.getAccessibleContext().setAccessibleName("txtTitulo");
-        btnCrear.getAccessibleContext().setAccessibleName("btnCrear");
-        txtPass2.getAccessibleContext().setAccessibleName("txtPass2");
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoseguridad/fondo.png"))); // NOI18N
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 540));
 
         getAccessibleContext().setAccessibleName("btnCrear");
 
@@ -298,6 +232,8 @@ public class registrarUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel lblErrirApellido;
     private javax.swing.JLabel lblErrorLogin;
     private javax.swing.JLabel lblErrorNombre;

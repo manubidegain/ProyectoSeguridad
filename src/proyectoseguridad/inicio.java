@@ -27,8 +27,8 @@ public class inicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -37,16 +37,7 @@ public class inicio extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
-
-        jButton1.setText("Login");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(320, 210, 115, 29);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setText("Registrar Usuario");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -54,34 +45,35 @@ public class inicio extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(480, 210, 152, 29);
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 220, -1, -1));
+
+        jButton1.setText("Login");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 115, -1));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 48)); // NOI18N
-        jLabel1.setText("Proyecto Seguridad ");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(230, 50, 530, 80);
+        jLabel1.setText("Proyecto Seguridad");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 520, 90));
 
-        jLabel2.setText("Manuel Bidegain");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(700, 400, 102, 20);
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 15)); // NOI18N
+        jLabel2.setText("Integrantes");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, 100, 20));
 
-        jLabel3.setText("Rafael Pelacchi");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(700, 460, 130, 20);
+        jLabel3.setText("Manuel Bidegain");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 400, 120, -1));
 
         jLabel5.setText("Hector Barnada");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(700, 430, 95, 20);
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 430, 110, -1));
 
-        jLabel6.setFont(new java.awt.Font("Lucida Grande", 1, 15)); // NOI18N
-        jLabel6.setText("Integrantes");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(630, 370, 120, 16);
+        jLabel6.setText("Rafael Pelacchi");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 460, 110, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoseguridad/fondo.png"))); // NOI18N
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(0, 0, 920, 540);
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
