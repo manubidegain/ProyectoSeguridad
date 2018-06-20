@@ -17,6 +17,7 @@ import javax.swing.JFileChooser;
 public class menuPrincipal extends javax.swing.JFrame {
 
     File archivoCifrado;
+    String cedulaUsuario;
     /**
      * Creates new form menuPrincipal
      */

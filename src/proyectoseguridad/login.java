@@ -38,44 +38,44 @@ public class login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         lblErrorPassword = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
-        jPanel1 = new javax.swing.JPanel();
         btnIngresar = new javax.swing.JButton();
         btnIngresar1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(919, 533));
+        getContentPane().setLayout(null);
 
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsuarioActionPerformed(evt);
             }
         });
+        getContentPane().add(txtUsuario);
+        txtUsuario.setBounds(348, 358, 250, 26);
 
         jLabel1.setText("Usuario");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(265, 363, 48, 16);
 
         jLabel2.setText("Password");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(265, 415, 59, 16);
 
         lblErrorPassword.setForeground(new java.awt.Color(255, 51, 51));
         lblErrorPassword.setText("Usuario o Password incorrecto");
+        getContentPane().add(lblErrorPassword);
+        lblErrorPassword.setBounds(371, 495, 191, 16);
 
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPasswordActionPerformed(evt);
             }
         });
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 244, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 191, Short.MAX_VALUE)
-        );
+        getContentPane().add(txtPassword);
+        txtPassword.setBounds(348, 410, 250, 26);
 
         btnIngresar.setText("Ingresar");
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
@@ -83,6 +83,8 @@ public class login extends javax.swing.JFrame {
                 btnIngresarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnIngresar);
+        btnIngresar.setBounds(412, 454, 95, 29);
 
         btnIngresar1.setText("Sincronizar Con SmartCardReader");
         btnIngresar1.setActionCommand("sincornizar");
@@ -91,56 +93,22 @@ public class login extends javax.swing.JFrame {
                 btnIngresar1ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(306, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnIngresar)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
-                                .addComponent(txtPassword)))
-                        .addGap(280, 280, 280))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblErrorPassword)
-                        .addGap(313, 313, 313))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnIngresar1)
-                        .addGap(310, 310, 310))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addComponent(btnIngresar1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(btnIngresar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblErrorPassword)
-                .addGap(23, 23, 23))
-        );
-
+        getContentPane().add(btnIngresar1);
+        btnIngresar1.setBounds(352, 303, 246, 29);
         btnIngresar1.getAccessibleContext().setAccessibleName("sincronizar");
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoseguridad/Imagen.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(291, 65, 343, 209);
+
+        jPanel1.setLayout(null);
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 100, 100);
+
+        jLabel4.setText("jLabel4");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(0, 0, 920, 530);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -154,15 +122,15 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-            String usuario = this.txtUsuario.getText();
+            String cedula = this.txtUsuario.getText();
             String password = this.txtPassword.getText();
-            if(!error(usuario,password)){
+            if(!error(cedula,password)){
                 this.lblErrorPassword.setVisible(true);
             }
             else{
                 boolean existeUsuario = false;
                 try {
-                    existeUsuario = existe(usuario,password);
+                    existeUsuario = existe(cedula,password);
                 } catch (SQLException ex) {
                     Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (NoSuchAlgorithmException ex) {
@@ -175,6 +143,7 @@ public class login extends javax.swing.JFrame {
                     cargarPagina();
                     this.setVisible(false);
                     menu m = new menu();
+                    m.setCedulaUsuario(cedula);
                     m.setVisible(true);
                 }
             }
@@ -196,6 +165,7 @@ public class login extends javax.swing.JFrame {
             cargarPagina();
             this.setVisible(false);
             menu m = new menu();
+            m.setCedulaUsuario(cedula);
             m.setVisible(true);
         }
         } catch (Exception ex) {
@@ -246,6 +216,8 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JButton btnIngresar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblErrorPassword;
     private javax.swing.JPasswordField txtPassword;
