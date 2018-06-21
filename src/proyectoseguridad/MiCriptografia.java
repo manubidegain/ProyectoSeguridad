@@ -152,12 +152,30 @@ public class MiCriptografia {
             else return false;
         
         }
-        
         else return false;
-        
-        
-        
     }
+    
+    public static Boolean esAdministrador (String cedula) throws SQLException, NoSuchAlgorithmException
+    {
+        ABM abm = new ABM(); 
+        ResultSet rs = abm.getRol(cedula);
+        if(rs != null)
+        {
+            if(rs.next()){
+        
+                if(rs.getString(1).equals("1") )
+                {
+                    return true;
+                }
+                else return false;
+            
+            }
+            else return false;
+        
+        }
+        else return false;
+    }
+    
     
     public Boolean autenticacionSmart (String cedula) throws SQLException, NoSuchAlgorithmException
     {

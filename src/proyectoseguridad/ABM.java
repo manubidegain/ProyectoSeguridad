@@ -64,6 +64,23 @@ public class ABM {
         
     }
     
+    public ResultSet getRol(String cedula)
+    {
+        
+        try {
+            Conector.abrirConexion();
+            String sentenciaSQL = new String();
+            sentenciaSQL = sentenciaSQL = sentenciaSQL + "SELECT rol FROM seguridad.usuarios WHERE cedula='"+cedula+"';";
+            Conector.resultado = Conector.sentencia.executeQuery(sentenciaSQL);
+            return Conector.resultado;
+        }
+        catch (Exception ex) {
+            System.out.println("Error");
+            return null;
+        }
+        
+    }
+    
     public ResultSet encontrarUsuarioCedula(String cedula)
     {
         
