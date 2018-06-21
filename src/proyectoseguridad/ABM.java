@@ -99,4 +99,17 @@ public class ABM {
         Conector.cerrarConexion();
     }
 
+     static public ResultSet editarUsuario(Usuario editar, String cedula) {
+        try {
+            Conector.abrirConexion();
+            String sentenciaSQL = new String();
+            sentenciaSQL = sentenciaSQL + "update seguridad.usuarios set nombre='"+editar.getNombre() +"', cedula='"+editar.getCedula()+"', apellido='"+editar.getApellido()+"', password='"+editar.getPass()+"' where cedula='"+cedula+"'";
+            Conector.resultado = Conector.sentencia.executeQuery(sentenciaSQL);
+            return Conector.resultado;
+        }
+        catch (Exception ex) {
+            System.out.println("Error");
+            return null;
+        }
+    }
 }

@@ -30,7 +30,7 @@ public class Funciones {
     
     private static String certificate_HEX_DER_encoded = "";
  
-    public boolean sqlInyection(String text) 
+    public static boolean sqlInyection(String text) 
     {
         boolean result = false;
         if(text.contains("'")){

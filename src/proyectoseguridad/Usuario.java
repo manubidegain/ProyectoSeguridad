@@ -19,10 +19,10 @@ public class Usuario {
     private String password;
     private String cedula;
 
-    public Usuario(String nombre, String apellido, String login, String password) {
+    public Usuario(String nombre, String apellido, String cedula, String password) {
         this.nombre = nombre;
         this.password = password;
-        this.cedula = login;
+        this.cedula = cedula;
         this.apellido = apellido;
     }
     

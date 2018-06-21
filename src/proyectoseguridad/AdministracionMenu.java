@@ -20,9 +20,27 @@ public class AdministracionMenu extends javax.swing.JFrame {
      */
     
     ArrayList<Usuario> misusuarios = new ArrayList<Usuario>();
+    Usuario seleccionado;
     public AdministracionMenu() {
         initComponents();
+        cargarPagina();
+    }
+    
+    public void cargarPagina(){ 
+        this.listUsuarios.clearSelection();
         cargarUsuarios();
+        seleccionado = null;
+        this.btnCancelar.setVisible(false);
+        this.btnEditar.setText("Editar"); 
+        habilitacionTextos(false);
+        this.lblError.setVisible(false);
+    }
+    
+    public void habilitacionTextos(boolean valor){
+        this.txtNombre.setEnabled(valor);
+        this.txtApellido.setEnabled(valor);
+        this.txtPassword.setEnabled(valor);
+        this.txtCedula.setEnabled(valor);
     }
     
     public void cargarUsuarios(){
@@ -55,9 +73,10 @@ public class AdministracionMenu extends javax.swing.JFrame {
         txtNombre = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        lblError = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
@@ -94,20 +113,29 @@ public class AdministracionMenu extends javax.swing.JFrame {
         getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 330, 320, -1));
         getContentPane().add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 240, 320, -1));
 
-        jButton1.setText("Editar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnEditarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 390, 90, 30));
+        getContentPane().add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 390, 90, 30));
 
-        jButton2.setText("Cancelar");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, -1, -1));
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel8.setText("Usuarios");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, -1, -1));
+
+        lblError.setForeground(new java.awt.Color(255, 51, 51));
+        lblError.setText("Valores no disponibles");
+        getContentPane().add(lblError, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 360, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectoseguridad/fondo.png"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 530));
@@ -115,14 +143,43 @@ public class AdministracionMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        if(this.btnEditar.getText().equals("Editar")){
+            habilitacionTextos(true);
+            this.btnCancelar.setVisible(true);
+            this.btnEditar.setText("Actualizar");
+        }
+        else{ 
+            if(ValidarCampos()){
+                Usuario paraEditar = new Usuario(this.txtNombre.getText(),this.txtApellido.getText(),this.txtCedula.getText(),this.txtPassword.getText());
+                ABM.editarUsuario(paraEditar, seleccionado.getCedula());
+                cargarPagina(); 
+            }
+            else{
+                this.lblError.setVisible(false);
+            }
+            
+        }
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     private void listUsuariosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listUsuariosValueChanged
-        int a = this.listUsuarios.getSelectedIndex();
-        Usuario nuevo = this.misusuarios.get(this.listUsuarios.getSelectedIndex());
+        int index= this.listUsuarios.getSelectedIndex();
+        seleccionado = this.misusuarios.get(index);
+        this.txtNombre.setText(seleccionado.getNombre());
+        this.txtApellido.setText(seleccionado.getApellido());
+        this.txtCedula.setText(seleccionado.getCedula());
+        this.txtPassword.setText(seleccionado.getPass());
     }//GEN-LAST:event_listUsuariosValueChanged
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        this.txtNombre.setText(seleccionado.getNombre());
+        this.txtApellido.setText(seleccionado.getApellido());
+        this.txtCedula.setText(seleccionado.getCedula());
+        this.txtPassword.setText(seleccionado.getPass());
+        this.btnEditar.setText("Editar");
+        this.lblError.setVisible(false);
+        this.btnCancelar.setVisible(false);
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,10 +216,17 @@ public class AdministracionMenu extends javax.swing.JFrame {
             }
         });
     }
+    
+    public boolean ValidarCampos(){
+     boolean resultado = false;
+     boolean sql = Funciones.sqlInyection(this.txtNombre.getText()) && Funciones.sqlInyection(this.txtApellido.getText()) && Funciones.sqlInyection(this.txtCedula.getText()) && Funciones.sqlInyection(this.txtPassword.getText());
+     boolean vacio = !this.txtNombre.getText().isEmpty() && !this.txtApellido.getText().isEmpty() && !this.txtCedula.getText().isEmpty() && !this.txtPassword.getText().isEmpty();
+     return vacio && sql;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnEditar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -172,10 +236,13 @@ public class AdministracionMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblError;
     private javax.swing.JList<String> listUsuarios;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPassword;
     // End of variables declaration//GEN-END:variables
+
+    
 }
