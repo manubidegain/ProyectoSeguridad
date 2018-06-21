@@ -80,7 +80,7 @@ public class ABM {
         }
         
     }
-    public void llenarTablaInicialUsuarios(ArrayList users) 
+    static public void llenarTablaInicialUsuarios(ArrayList users) 
     {
         ResultSet rs = ABM.buscarUsuarios();
         
@@ -90,6 +90,7 @@ public class ABM {
                     Usuario usuario = new Usuario();
                     usuario.setNombre(rs.getString(1));
                     usuario.setPassword(rs.getString(2));
+                    usuario.setCedula(rs.getString(3));
                     users.add(usuario);
                 }
             }            

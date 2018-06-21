@@ -5,10 +5,20 @@
  */
 package proyectoseguridad;
 
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.smartcardio.CardException;
+import javax.smartcardio.TerminalFactory;
+import javax.swing.JOptionPane;
+import static proyectoseguridad.ProyectoSeguridad.card;
+import static proyectoseguridad.ProyectoSeguridad.factory;
+import static proyectoseguridad.ProyectoSeguridad.terminal;
+import static proyectoseguridad.ProyectoSeguridad.channel;
+import static proyectoseguridad.ProyectoSeguridad.terminals;
 
 /**
  *
@@ -154,6 +164,38 @@ public class login extends javax.swing.JFrame {
     private void btnIngresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresar1ActionPerformed
         // TODO add your handling code here:
         
+       //ESTO ES EL LECTOR DE TARJETAS
+        
+        
+        try {
+        factory = TerminalFactory.getDefault();
+        terminals = factory.terminals().list();
+        // System.out.println("Terminals: " + terminals);
+        // get the first terminal
+        terminal = terminals.get(0);
+        // establish a connection with the card
+        card = terminal.connect("T=0");
+        // System.out.println("card ATR: " +
+        // byteArrayToHex(card.getATR().getBytes()));
+        channel = card.getBasicChannel();
+
+        //Log Configuration
+        String logPath = System.getProperty("user.dir");
+
+        String logOption = "";
+
+        LogUtils logUtils = LogUtils.getInstance();
+        logUtils.configure(logPath,logOption);
+        
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (CardException ex) {
+            JOptionPane.showMessageDialog(rootPane, "El lector no esta conectado o la lectura de la cedula fallo");
+        }
+        
+        
         boolean existeUsuario = false;
         String cedula;
         try {
@@ -166,7 +208,6 @@ public class login extends javax.swing.JFrame {
             cargarPagina();
             this.setVisible(false);
             menu m = new menu();
-            m.setCedulaUsuario(cedula);
             m.setVisible(true);
         }
         } catch (Exception ex) {

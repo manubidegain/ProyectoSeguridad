@@ -64,9 +64,10 @@ public class Usuario {
         this.apellido = apellido;
     }
 
+    @Override
     public String toString()
     {
-        return ("Usuario: " + this.getNombre() +" Password Hasheada: "+ this.getPass());
+        return (this.getNombre());
     }
     
     

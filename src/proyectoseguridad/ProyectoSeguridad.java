@@ -68,31 +68,31 @@ public class ProyectoSeguridad {
     public static void main(String[] args) throws NoSuchAlgorithmException, ProtocolException, MalformedURLException, IOException, SQLException, Exception {
         // TODO code application logic here
         // show the list of available terminals
-        factory = TerminalFactory.getDefault();
-        terminals = factory.terminals().list();
+        //factory = TerminalFactory.getDefault();
+        //terminals = factory.terminals().list();
         // System.out.println("Terminals: " + terminals);
-        // get the first terminal
-        terminal = terminals.get(0);
-        // establish a connection with the card
-        card = terminal.connect("T=0");
-        // System.out.println("card ATR: " +
-        // byteArrayToHex(card.getATR().getBytes()));
-        channel = card.getBasicChannel();
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        //Log Configuration
-        String logPath = System.getProperty("user.dir");
-
-        String logOption = "";
-
-        LogUtils logUtils = LogUtils.getInstance();
-        logUtils.configure(logPath,logOption);
-        
-        //System.out.println(Funciones.readCedula(channel));
-        inicio init = new inicio();
-        
-        init.setVisible(true);
-        
+//         get the first terminal
+//        terminal = terminals.get(0);
+//         establish a connection with the card
+//        card = terminal.connect("T=0");
+//         System.out.println("card ATR: " +
+//         byteArrayToHex(card.getATR().getBytes()));
+//        channel = card.getBasicChannel();
+//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//
+//        Log Configuration
+//        String logPath = System.getProperty("user.dir");
+//
+//        String logOption = "";
+//
+//        LogUtils logUtils = LogUtils.getInstance();
+//        logUtils.configure(logPath,logOption);
+//        
+//        System.out.println(Funciones.readCedula(channel));
+//        inicio init = new inicio();
+//        
+//        init.setVisible(true);
+//        
         
 
     }    
